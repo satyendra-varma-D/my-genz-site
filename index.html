@@ -3,43 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GenZ Site</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css">
+  <title>Pavan | GenZ Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff4b2b, #ff416c, #6a11cb, #2575fc);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .btn {
+      background: white;
+      color: #ff416c;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #ff416c;
+      color: white;
+      transform: scale(1.05);
+    }
+    .socials {
+      margin-top: 2rem;
+    }
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      color: #ff416c;
+    }
+  </style>
 </head>
 <body>
-  <div class="main-container">
-    <div class="blur-circle1"></div>
-    <div class="blur-circle2"></div>
+  <h1>👋 Hi, I'm Pavan</h1>
+  <p>
+    Business Analyst | MBA in Supply Chain | Tech-Savvy Entrepreneur  
+    Building ideas that vibe with GenZ and disrupt the future 🚀
+  </p>
+  <a href="#" class="btn">Let’s Connect</a>
 
-    <!-- Start Landing Page -->
-    <div class="landing-page">
-      <header>
-        <div class="container">
-          <a href="#" class="logo">Your <b>Website</b></a>
-          <ul class="links">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Work</li>
-            <li>Info</li>
-            <li>Get Started</li>
-          </ul>
-        </div>
-      </header>
-      <div class="content">
-        <div class="container">
-          <div class="info">
-            <h1>Looking For Inspiration</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit nihil ullam nesciunt quidem iste, Repellendus odit nihil</p>
-            <button>Button name</button>
-          </div>
-          <div class="image">
-            <img class="main-image" src="https://cdni.iconscout.com/illustration/premium/thumb/businessman-working-using-vr-tech-3840669-3202986.png?f=webp" alt="Trendy Illustration">
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Landing Page -->
+  <div class="socials">
+    <a href="#">🌐</a>
+    <a href="#">💼</a>
+    <a href="#">📸</a>
   </div>
 </body>
 </html>
