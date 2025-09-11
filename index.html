@@ -4,85 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loading... | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Particle Background -->
+  <canvas id="bgCanvas"></canvas>
 
   <!-- Header -->
   <header>
-    <div class="container header-container">
-      <h1 id="headerName">Loading...</h1>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <h1 id="headerName">Loading...</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section id="hero">
-    <div class="container hero-container">
-      <div class="hero-text">
-        <h2 id="heroTitle">Loading...</h2>
-        <p id="heroTagline">Loading...</p>
-        <a href="#projects"><button class="btn">View Projects</button></a>
-      </div>
-      <div class="hero-image">
-        <img src="https://via.placeholder.com/400x400.png?text=Tech+Illustration" alt="Tech illustration">
-      </div>
-    </div>
+    <h2 id="heroTitle">Loading...</h2>
+    <p id="heroTagline">Loading...</p>
+    <a href="#about"><button class="btn">Explore</button></a>
   </section>
 
   <!-- About Section -->
   <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p id="aboutText">Loading about...</p>
-    </div>
+    <h2>About Me</h2>
+    <p id="aboutText">Loading about...</p>
   </section>
 
   <!-- Skills Section -->
   <section id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skills-grid" id="skillsGrid"></div>
-    </div>
+    <h2>Skills</h2>
+    <div class="skills-grid" id="skillsGrid"></div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
+    <h2>Projects</h2>
+    <div class="projects-grid" id="projectsGrid"></div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <div class="contact-cards">
-        <a href="" id="contactLinkedin" target="_blank" class="contact-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-          <span>LinkedIn</span>
-        </a>
-        <a href="" id="contactEmailLink" class="contact-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
-          <span id="contactEmail">Loading...</span>
-        </a>
-      </div>
+    <h2>Contact</h2>
+    <div class="contact-links">
+      <a href="" id="contactLinkedin" target="_blank" class="contact-card">LinkedIn</a>
+      <a href="" id="contactEmailLink" class="contact-card"><span id="contactEmail">Loading...</span></a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 <span id="footerName">Loading...</span> | Built with Tech & Vision
-  </footer>
+  <footer>© 2025 <span id="footerName">Loading...</span> | Built with Tech & Vision</footer>
 
-  <!-- JS for dynamic content -->
+  <!-- Dynamic Content -->
   <script>
     fetch('data.json')
       .then(res => res.json())
@@ -115,6 +92,61 @@
         document.getElementById('contactEmailLink').href = 'mailto:' + data.contact.email;
       })
       .catch(e => console.error("Error loading data.json", e));
+
+    // Particle Background
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+    const numberOfParticles = 80;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 1;
+        this.speedY = (Math.random() - 0.5) * 1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = "#00f7ff";
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = "#00f7ff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    });
   </script>
 </body>
 </html>
