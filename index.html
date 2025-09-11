@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hero Section -->
+
+  <!-- Header -->
   <header>
     <div class="container header-container">
       <h1 id="headerName">Loading...</h1>
@@ -21,6 +22,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero">
     <div class="container hero-container">
       <div class="hero-text">
@@ -29,35 +31,38 @@
         <a href="#projects"><button class="btn">View Projects</button></a>
       </div>
       <div class="hero-image">
-        <!-- Optional illustration or placeholder -->
         <img src="https://via.placeholder.com/400x400.png?text=Tech+Illustration" alt="Tech illustration">
       </div>
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about">
-    <div class="container about-container">
+    <div class="container">
       <h2>About Me</h2>
       <p id="aboutText">Loading about...</p>
     </div>
   </section>
 
+  <!-- Skills Section -->
   <section id="skills">
-    <div class="container skills-container">
+    <div class="container">
       <h2>Skills</h2>
       <div class="skills-grid" id="skillsGrid"></div>
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
-    <div class="container projects-container">
+    <div class="container">
       <h2>Projects</h2>
       <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
-    <div class="container contact-container">
+    <div class="container">
       <h2>Contact</h2>
       <div class="contact-cards">
         <a href="" id="contactLinkedin" target="_blank" class="contact-card">
@@ -72,16 +77,16 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     © 2025 <span id="footerName">Loading...</span> | Built with Tech & Vision
   </footer>
 
-  <!-- JS to populate content dynamically -->
+  <!-- JS for dynamic content -->
   <script>
     fetch('data.json')
       .then(res => res.json())
       .then(data => {
-        // Page text
         document.title = data.name + " | Portfolio";
         document.getElementById('headerName').innerText = data.name;
         document.getElementById('footerName').innerText = data.name;
@@ -89,7 +94,6 @@
         document.getElementById('heroTagline').innerText = data.tagline;
         document.getElementById('aboutText').innerText = data.about;
 
-        // Skills
         const skillsGrid = document.getElementById('skillsGrid');
         data.skills.forEach(skill => {
           const div = document.createElement('div');
@@ -98,7 +102,6 @@
           skillsGrid.appendChild(div);
         });
 
-        // Projects
         const projectsGrid = document.getElementById('projectsGrid');
         data.projects.forEach(proj => {
           const div = document.createElement('div');
@@ -107,7 +110,6 @@
           projectsGrid.appendChild(div);
         });
 
-        // Contact
         document.getElementById('contactLinkedin').href = data.contact.linkedin;
         document.getElementById('contactEmail').innerText = data.contact.email;
         document.getElementById('contactEmailLink').href = 'mailto:' + data.contact.email;
