@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pavan | Tech Alchemist</title>
+  <title><!-- will be filled by JS -->Loading... | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: #0a0f1f;
@@ -14,122 +14,85 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-
     canvas#bgCanvas {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -1;
-      background: linear-gradient(135deg, #0a0f1f, #121c33, #0a0f1f);
     }
-
     header {
-      position: fixed;
-      width: 100%;
-      top: 0; left: 0;
-      padding: 20px 40px;
-      background: rgba(10,15,31,0.8);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: fixed; width:100%; top:0; left:0;
+      padding: 20px 40px; background: rgba(10,15,31,0.8);
+      display:flex; justify-content: space-between; align-items:center;
+      z-index: 100; border-bottom:1px solid rgba(255,255,255,0.1);
     }
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      color: #00f7ff;
+      font-size:1.5rem; color: #00f7ff;
       text-shadow: 0 0 10px #00f7ff;
     }
     nav a {
-      margin: 0 15px;
-      color: #e0e0e0;
-      text-decoration: none;
+      margin:0 15px; color:#e0e0e0; text-decoration:none;
       transition: color 0.3s;
     }
-    nav a:hover { color: #ff00ff; }
+    nav a:hover { color:#ff00ff; }
 
     section {
-      min-height: 100vh;
-      padding: 100px 60px 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      min-height:100vh;
+      padding:100px 60px 60px;
+      display:flex; flex-direction: column; justify-content:center; align-items:center;
+      text-align:center;
     }
+    #hero h2 { font-size:3rem; color:#fff; text-shadow:0 0 20px #00f7ff; margin-bottom:20px; }
+    #hero p { font-size:1.3rem; color:#b8f7ff; margin-bottom:30px; }
 
-    #hero h2 {
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 0 0 20px #00f7ff;
-      margin-bottom: 20px;
-    }
-    #hero p {
-      font-size: 1.3rem;
-      color: #b8f7ff;
-      margin-bottom: 30px;
-    }
     .btn {
-      padding: 12px 30px;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #00f7ff;
-      color: #000;
+      padding:12px 30px; border:none; border-radius:30px;
+      font-weight:bold; cursor:pointer;
+      background:#00f7ff; color:#000;
       transition: all 0.3s;
-      box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+      box-shadow:0 0 10px #00f7ff, 0 0 20px #00f7ff;
     }
     .btn:hover {
-      background: #ff00ff;
-      color: #fff;
-      box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+      background:#ff00ff; color:#fff;
+      box-shadow:0 0 20px #ff00ff, 0 0 40px #ff00ff;
       transform: scale(1.1);
     }
 
     section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #00f7ff;
-      text-shadow: 0 0 15px #00f7ff;
+      font-size:2.5rem; margin-bottom:20px;
+      color:#00f7ff; text-shadow:0 0 15px #00f7ff;
     }
-    section p { max-width: 900px; line-height: 1.8; color: #ddd; }
+    section p { max-width:900px; line-height:1.8; color:#ddd; }
 
     .skills-grid, .projects-grid {
-      display: grid;
-      gap: 20px;
-      margin-top: 30px;
+      display: grid; gap:20px; margin-top:30px;
     }
-    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: 900px; }
-    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1000px; }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); max-width:900px; }
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); max-width:1000px; }
 
     .skill, .project {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.1);
+      padding:20px; border-radius:10px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .skill:hover { transform: translateY(-5px); box-shadow: 0 0 15px #00f7ff; }
-    .project:hover { transform: translateY(-5px); box-shadow: 0 0 15px #ff00ff; }
-    .project h3 { color: #ff00ff; margin-bottom: 10px; }
+    .skill:hover { transform: translateY(-5px); box-shadow:0 0 15px #00f7ff; }
+    .project:hover { transform: translateY(-5px); box-shadow:0 0 15px #ff00ff; }
+    .project h3 { color:#ff00ff; margin-bottom:10px; }
 
     footer {
-      text-align: center;
-      padding: 20px;
+      text-align:center; padding:20px;
       background: rgba(10,15,31,0.9);
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      color: #aaa;
+      border-top:1px solid rgba(255,255,255,0.1);
+      font-size:0.9rem; color:#aaa;
     }
   </style>
 </head>
 <body>
   <canvas id="bgCanvas"></canvas>
-
   <header>
-    <h1>Pavan | Tech Alchemist</h1>
+    <h1 id="headerName">Loading...</h1>
     <nav>
       <a href="#hero">Home</a>
       <a href="#about">About</a>
@@ -139,81 +102,84 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section id="hero">
-    <h2>Hi, I'm Pavan ⚡</h2>
-    <p>Business Analyst | SAP Specialist | Tech Entrepreneur | AI Enthusiast</p>
-    <a href="#about"><button class="btn">Explore My Journey</button></a>
+    <h2 id="heroTitle">Loading...</h2>
+    <p id="heroTagline">Loading...</p>
+    <a href="#about"><button class="btn">Explore</button></a>
   </section>
 
-  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Graduate in Arts from Andhra University, pursued MCA from JNTUK after securing a top state ICET rank. 
-      Started as a Business Analyst in Oil & Gas downstream with African clients, managing complex supply chains.  
-      Currently pursuing MBA in Supply Chain Management.  
-      <br><br>
-      Founder of <b>WeGroup Tech</b> — solving India's core problems in farming, employment, healthcare, and waste management through tech innovation.  
-      Building AI-powered AgriTech for next-gen crop disease detection to transform Indian agriculture.
-    </p>
+    <p id="aboutText">Loading about...</p>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
-    <h2>Skills & Expertise</h2>
-    <div class="skills-grid">
-      <div class="skill">Business Analysis</div>
-      <div class="skill">Production Management</div>
-      <div class="skill">Inventory & Logistics</div>
-      <div class="skill">Terminal & Trade Management</div>
-      <div class="skill">Procurement & Finance</div>
-      <div class="skill">Maintenance Systems</div>
-      <div class="skill">SAP S4 HANA ABAP</div>
-      <div class="skill">SAP Analytics</div>
-      <div class="skill">SAP MM & SD</div>
-      <div class="skill">UI/UX & AI Concepts</div>
+    <h2>Skills</h2>
+    <div class="skills-grid" id="skillsGrid">
+      <!-- skills will be injected here -->
     </div>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
-    <h2>Key Projects</h2>
-    <div class="projects-grid">
-      <div class="project">
-        <h3>Oil & Gas SCM</h3>
-        <p>End-to-end downstream supply chain solutions for African clients, covering production, logistics, sales, and terminal management.</p>
-      </div>
-      <div class="project">
-        <h3>WeGroup Tech</h3>
-        <p>Founded a company delivering hospital management, waste management, and farming tech solutions with high user satisfaction.</p>
-      </div>
-      <div class="project">
-        <h3>AI AgriTech Startup</h3>
-        <p>Building next-gen AI engine for crop disease detection using image processing — reshaping the future of farming in India.</p>
-      </div>
+    <h2>Projects</h2>
+    <div class="projects-grid" id="projectsGrid">
+      <!-- projects will be injected here -->
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Let’s collaborate on tech-driven change in business & society.</p>
-    <p>📧 your-email@example.com</p>
-    <a href="mailto:your-email@example.com"><button class="btn">Get in Touch</button></a>
+    <p>LinkedIn: <a href="" id="contactLinkedin" target="_blank">Visit Profile</a></p>
+    <p>Email: <span id="contactEmail">Loading...</span></p>
+    <a href="" id="contactEmailLink"><button class="btn">Get in touch</button></a>
   </section>
 
-  <footer>
-    © 2025 Pavan | Built with ⚡ Tech & Vision
-  </footer>
+  <footer>© 2025 <span id="footerName">Loading...</span> | Built with Tech & Vision</footer>
 
-  <!-- Particle Background Script -->
   <script>
+    // load data.json
+    fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      document.title = data.name + " | Portfolio";
+      document.getElementById('headerName').innerText = data.name;
+      document.getElementById('footerName').innerText = data.name;
+      document.getElementById('heroTitle').innerText = "Hi, I'm " + data.name;
+      document.getElementById('heroTagline').innerText = data.title;
+      document.getElementById('aboutText').innerText = data.about;
+
+      const skillsGrid = document.getElementById('skillsGrid');
+      data.skills.forEach(skill => {
+        const div = document.createElement('div');
+        div.className = 'skill';
+        div.innerText = skill;
+        skillsGrid.appendChild(div);
+      });
+
+      const projectsGrid = document.getElementById('projectsGrid');
+      data.projects.forEach(proj => {
+        const div = document.createElement('div');
+        div.className = 'project';
+        const h3 = document.createElement('h3');
+        h3.innerText = proj.title;
+        const p = document.createElement('p');
+        p.innerText = proj.desc;
+        div.appendChild(h3);
+        div.appendChild(p);
+        projectsGrid.appendChild(div);
+      });
+
+      document.getElementById('contactLinkedin').href = data.contact.linkedin;
+      document.getElementById('contactEmail').innerText = data.contact.email;
+      document.getElementById('contactEmailLink').href = 'mailto:' + data.contact.email;
+    })
+    .catch(e => console.error("Error loading data.json", e));
+
+    // particle background
     const canvas = document.getElementById("bgCanvas");
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     let particlesArray = [];
     const numberOfParticles = 100;
 
@@ -241,7 +207,7 @@
       }
     }
 
-    function init() {
+    function initParticles() {
       particlesArray = [];
       for (let i = 0; i < numberOfParticles; i++) {
         let size = Math.random() * 2 + 1;
@@ -253,21 +219,21 @@
       }
     }
 
-    function animate() {
+    function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let particle of particlesArray) {
-        particle.update();
-        particle.draw();
-      }
-      requestAnimationFrame(animate);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
     }
 
-    init();
-    animate();
-    window.addEventListener("resize", () => {
+    initParticles();
+    animateParticles();
+    window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      init();
+      initParticles();
     });
   </script>
 </body>
