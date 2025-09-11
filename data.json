@@ -1,0 +1,49 @@
+{
+  "name": "Satyendra Varma DN",
+  "title": "Techno-Functional Consultant | Business Analyst | AI & Supply Chain Enthusiast",
+  "tagline": "Blending Business Analysis, SAP, and AI to deliver future-ready solutions",
+  "about": "I am a techno-functional consultant with a unique mix of business acumen and technical depth. With a Bachelor of Arts from Andhra University, an MCA from JNTUK, and an MBA in Supply Chain Management (Big Data Analytics), I bring a multidisciplinary perspective to problem-solving. I’ve worked on projects spanning oil & gas downstream supply chain, ERP implementations, and AI-driven startups. My entrepreneurial venture, WeGroup Tech, focuses on solving core challenges in agriculture, employment, healthcare, and waste management using technology.",
+  "skills": [
+    "Business Analysis",
+    "Supply Chain Management",
+    "SAP S/4HANA ABAP",
+    "SAP MM (Materials Management)",
+    "SAP SD (Sales & Distribution)",
+    "SAP Analytics",
+    "ERP Implementation",
+    "Oil & Gas Supply Chain",
+    "Python",
+    "React",
+    "PostgreSQL",
+    "Figma",
+    "UI/UX Design",
+    "Data Analytics"
+  ],
+  "projects": [
+    {
+      "title": "AI AgriTech Startup",
+      "desc": "Building next-gen image-based disease detection for crops to revolutionize Indian farming."
+    },
+    {
+      "title": "Hospital Management System",
+      "desc": "A robust healthcare platform designed for efficiency, transparency, and patient satisfaction."
+    },
+    {
+      "title": "Waste Management System",
+      "desc": "Smart system to manage, track, and optimize waste handling for municipalities and industries."
+    },
+    {
+      "title": "Oil & Gas Supply Chain Optimization",
+      "desc": "Worked with African downstream oil & gas clients to optimize production, inventory, and terminal management."
+    },
+    {
+      "title": "ERP & SAP Implementations",
+      "desc": "Hands-on experience in SAP MM, SD, and S/4HANA ABAP to streamline logistics, procurement, and finance."
+    }
+  ],
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/satyendra-varma-dn-472288280/",
+    "github": "https://github.com/your-username",
+    "email": "your-email@example.com"
+  }
+}
