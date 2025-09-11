@@ -3,169 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pavan | Tech Vibes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <title>Pavan | Tech Enthusiast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
-      height: 100vh;
-      background: black;
-      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f1f, #121c33, #0a0f1f);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 20px 40px;
+      background: rgba(10,15,31,0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
       color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 60px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
     }
 
-    /* Particle background */
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    /* Hero Section */
+    #hero {
+      background: radial-gradient(circle at top, rgba(0,247,255,0.1), transparent 70%);
     }
-
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
-      margin-bottom: 1rem;
+    #hero h2 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0 0 20px #00f7ff;
+      margin-bottom: 20px;
     }
-
-    p {
-      font-size: 1.2rem;
+    #hero p {
+      font-size: 1.3rem;
       color: #b8f7ff;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      line-height: 1.6;
+      margin-bottom: 30px;
     }
-
-    .typing {
-      font-size: 1.5rem;
-      color: #ff00ff;
-      border-right: 3px solid #ff00ff;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
     .btn {
-      margin-top: 20px;
       padding: 12px 30px;
-      font-size: 1rem;
-      color: black;
-      background: #00f7ff;
       border: none;
-      border-radius: 50px;
-      cursor: pointer;
+      border-radius: 30px;
       font-weight: bold;
+      cursor: pointer;
+      background: #00f7ff;
+      color: #000;
+      transition: all 0.3s;
       box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
-      transition: 0.3s;
     }
     .btn:hover {
       background: #ff00ff;
-      color: white;
+      color: #fff;
       box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
       transform: scale(1.1);
+    }
+
+    /* About */
+    #about h2, #skills h2, #projects h2, #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00f7ff;
+      text-shadow: 0 0 15px #00f7ff;
+    }
+    #about p {
+      max-width: 800px;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin-top: 30px;
+    }
+    .skill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00f7ff;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin-top: 30px;
+    }
+    .project {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #ff00ff;
+    }
+    .project h3 {
+      color: #ff00ff;
+      margin-bottom: 10px;
+    }
+
+    /* Contact */
+    #contact p {
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(10,15,31,0.9);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>⚡ Pavan’s Techverse ⚡</h1>
-  <p class="typing">Business Analyst | MBA | Future Entrepreneur | GenZ Builder 🚀</p>
-  <p>
-    Crafting futuristic ideas at the intersection of <span style="color:#ff00ff;">tech</span> & <span style="color:#00f7ff;">business</span>.  
-    Let’s disrupt the world together.
-  </p>
-  <button class="btn">Enter The Future</button>
+  <header>
+    <h1>Pavan</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Particle background script -->
-  <canvas id="particles"></canvas>
-  <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray;
+  <!-- Hero -->
+  <section id="hero">
+    <h2>Hi, I'm Pavan ⚡</h2>
+    <p>Business Analyst | MBA SCM | Tech Enthusiast | Future AI Entrepreneur</p>
+    <a href="#about"><button class="btn">Explore My World</button></a>
+  </section>
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Business Analyst with a strong background in Supply Chain and a passion for deep tech.
+      My journey blends technology, business analysis, and user-centered design. 
+      Currently exploring AI-driven solutions and innovative UI/UX to bridge business and technology.
+    </p>
+  </section>
 
-    window.addEventListener('resize', function() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    });
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">Business Analysis</div>
+      <div class="skill">UI/UX Design</div>
+      <div class="skill">Data & AI Concepts</div>
+      <div class="skill">Supply Chain Management</div>
+      <div class="skill">Agile & Scrum</div>
+      <div class="skill">Problem Solving</div>
+    </div>
+  </section>
 
-    class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.shadowColor = this.color;
-        ctx.shadowBlur = 20;
-        ctx.fill();
-      }
-      update() {
-        if (this.x + this.size > canvas.width || this.x - this.size < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y + this.size > canvas.height || this.y - this.size < 0) {
-          this.directionY = -this.directionY;
-        }
-        this.x += this.directionX;
-        this.y += this.directionY;
-        this.draw();
-      }
-    }
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Farm2Home AgriTech</h3>
+        <p>An AI-driven soil-to-sell ecosystem empowering farmers with data and market access.</p>
+      </div>
+      <div class="project">
+        <h3>Scrap Management System</h3>
+        <p>A digital solution to track, manage, and optimize industrial scrap logistics.</p>
+      </div>
+      <div class="project">
+        <h3>AI Disease Detection</h3>
+        <p>A prototype engine for identifying crop diseases using mobile camera inputs.</p>
+      </div>
+    </div>
+  </section>
 
-    function init() {
-      particlesArray = [];
-      let numberOfParticles = (canvas.height * canvas.width) / 9000;
-      for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1;
-        let x = Math.random() * (innerWidth - size * 2);
-        let y = Math.random() * (innerHeight - size * 2);
-        let directionX = (Math.random() * 0.4) - 0.2;
-        let directionY = (Math.random() * 0.4) - 0.2;
-        let color = "#00f7ff";
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-      }
-    }
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Let’s collaborate on exciting projects!</p>
+    <p>📧 pavans-email@example.com</p>
+    <a href="mailto:pavans-email@example.com"><button class="btn">Get in Touch</button></a>
+  </section>
 
-    function animate() {
-      requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, innerWidth, innerHeight);
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-      }
-    }
-
-    init();
-    animate();
-  </script>
+  <footer>
+    © 2025 Pavan | Built with 🚀 Tech & Coffee
+  </footer>
 </body>
 </html>
