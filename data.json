@@ -2,5 +2,34 @@
   "name": "Satyendra Varma DN",
   "title": "Techno-Functional Consultant | Business Analyst | AI & Supply Chain Enthusiast",
   "tagline": "Blending Business Analysis, SAP, and AI to deliver future-ready solutions",
-  "about": "I am a techno-functional consultant with a
+  "about": "I am a techno-functional consultant with a passion for bridging technology and business. Experienced in SAP, supply chain, finance, procurement, and AI-driven solutions. I love creating impactful solutions that connect systems, data, and people seamlessly.",
+  "skills": [
+    "SAP ABAP",
+    "Supply Chain Management",
+    "Business Analysis",
+    "AI & Machine Learning",
+    "Data Analytics",
+    "IoT Integration",
+    "Project Management",
+    "Kotlin / Android Dev"
+  ],
+  "projects": [
+    {
+      "title": "AI-driven AgriTech Platform",
+      "desc": "Developed a platform leveraging AI to optimize crop yield predictions and automate supply chain processes."
+    },
+    {
+      "title": "Scrap Management System",
+      "desc": "Built a full-stack solution for real-time tracking of scrap materials, with analytics and vendor management."
+    },
+    {
+      "title": "IoT-based Transport Tracker",
+      "desc": "Implemented a vehicle tracking system integrating IoT devices with real-time dashboards and alerts."
+    }
+  ],
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/satyendra-varma-dn-472288280/",
+    "github": "https://github.com/satyendra-varma",
+    "email": "satyendra.varma@example.com"
+  }
 }
