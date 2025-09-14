@@ -1,331 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Loading... | Portfolio</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/4b5f6c1d6b.js" crossorigin="anonymous"></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://kit.fontawesome.com/2c7fc28a2f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Scroll Progress -->
-  <div class="scroll-indicator">
-    <div class="scroll-progress" id="scrollProgress"></div>
-  </div>
 
-  <!-- Video Background (IT-style subtle loop) -->
+  <!-- Background -->
   <div class="bg-wrapper">
-    <video id="bgVideo" autoplay muted loop playsinline>
-      <!-- if you want to replace the video, swap this URL -->
+    <video autoplay muted loop playsinline id="bg-video">
       <source src="https://cdn.coverr.co/videos/coverr-futuristic-digital-grid-6279/1080p.mp4" type="video/mp4">
-      <!-- fallback image -->
       Your browser does not support the video tag.
     </video>
     <div class="bg-overlay"></div>
   </div>
 
-  <!-- Particle layer -->
-  <div class="particles" id="particles"></div>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">Pavan</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <div class="logo">SV.DEV</div>
-      <div class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="nav-socials" id="navSocials" aria-hidden="false">
-        <!-- icon links filled by JS -->
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <span id="typingName">Loading...</span>
-      </h1>
-      <p class="hero-subtitle">
-        <span class="typing-text" id="typingTitle">Loading...</span>
-      </p>
-      <div class="hero-ctas">
-        <a href="#projects" class="cta cta-primary">Featured Projects</a>
-        <a href="#contact" class="cta cta-outline">Contact</a>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="glow-text">Pavan</h1>
+    <h2 class="subtitle"><span id="typed-text"></span></h2>
+    <p class="tagline">Figma • Python • Power BI • Tableau • Pandas • Machine Learning • Deep Learning</p>
+    <div class="socials">
+      <a href="mailto:youremail@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/yourgithub" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="glass-card" id="aboutCard">
-        <p id="aboutText" style="font-size: 1.05rem; line-height: 1.8; color: #e6e6e6;">
-          Loading about information...
-        </p>
-      </div>
+  <!-- About -->
+  <section id="about" class="content-section">
+    <h2>About Me</h2>
+    <p>
+      Experienced professional blending tech, research, and analytics. Pro in Figma for design, Python for
+      development, and advanced analytics tools like Power BI, Tableau, and Pandas. Strong grip in
+      Machine Learning and Deep Learning — building solutions that are both impactful and elegant.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="content-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Figma</div>
+      <div class="skill-card">Power BI</div>
+      <div class="skill-card">Tableau</div>
+      <div class="skill-card">Pandas</div>
+      <div class="skill-card">Machine Learning</div>
+      <div class="skill-card">Deep Learning</div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title">Technical Arsenal</h2>
-      <div class="skills-grid" id="skillsGrid"></div>
+  <!-- Projects -->
+  <section id="projects" class="content-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">Project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
+  <!-- Contact -->
+  <section id="contact" class="content-section">
+    <h2>Contact</h2>
+    <p>Let's collaborate and build something extraordinary.</p>
+    <a href="mailto:youremail@gmail.com" class="contact-btn">Send Email</a>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="contact-grid" id="contactGrid"></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 <span id="footerName">Loading...</span> | Built with Precision</p>
+  <footer>
+    <p>© 2025 Pavan. All Rights Reserved.</p>
   </footer>
 
-  <!-- Script: data load + UI behaviors -->
+  <!-- Inline Script -->
   <script>
-    /* ---------- Data load ---------- */
-    let portfolioData = {};
+    // Typing effect for subtitle
+    const typedText = document.getElementById("typed-text");
+    const phrases = ["Tech Professional", "Data & AI Explorer", "Creative Problem Solver"];
+    let i = 0, j = 0, currentPhrase = [], isDeleting = false;
 
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        portfolioData = data;
-        initializeContent();
-      })
-      .catch(error => {
-        console.error('Error loading data.json:', error);
-        portfolioData = {
-          name: "Satyendra Varma DN",
-          title: "Techno-Functional Consultant",
-          about: "I bridge business and technology — ML, analytics, product thinking and supply chain optimization.",
-          skills: ["Business Analysis","Supply Chain Management","SAP S/4HANA ABAP","Python","React","Data Analytics"],
-          projects: [{ title: "Loading...", desc: "Loading..." }],
-          contact: { linkedin: "#", github: "#", email: "contact@example.com" }
-        };
-        initializeContent();
-      });
-
-    /* ---------- Initialize UI ---------- */
-    function initializeContent() {
-      populateBasicInfo();
-      createParticles();           // subtle monochrome particles
-      populateSkills();
-      populateProjects();
-      populateContact();
-      animateOnScroll();
-
-      // Social icons in navbar
-      buildNavSocials();
-
-      // Type animations
-      setTimeout(() => typeWriter(document.getElementById('typingName'), portfolioData.name || "Name", 70), 400);
-      setTimeout(() => typeWriterLoop(document.getElementById('typingTitle'), portfolioData.title || portfolioData.tagline || "Tech · Data · Product", 40), 1800);
-    }
-
-    /* ---------- Populate basics ---------- */
-    function populateBasicInfo() {
-      const name = portfolioData.name || 'Your Name';
-      document.title = name + " | Portfolio";
-      document.getElementById('footerName').textContent = name;
-      document.getElementById('aboutText').textContent = portfolioData.about || '—';
-      document.getElementById('logo').textContent = (portfolioData.shortName || (name.split(' ')[0] || name));
-    }
-
-    /* ---------- Build nav social icons (icon-only) ---------- */
-    function buildNavSocials(){
-      const cont = document.getElementById('navSocials');
-      const c = portfolioData.contact || {};
-      const items = [
-        { cls: 'linkedin', href: c.linkedin || '#', icon: '<i class=\"fab fa-linkedin-in\"></i>' },
-        { cls: 'github', href: c.github || '#', icon: '<i class=\"fab fa-github\"></i>' },
-        { cls: 'mail', href: 'mailto:' + (c.email || ''), icon: '<i class=\"fas fa-envelope\"></i>' },
-      ];
-      cont.innerHTML = items.map(it => `<a class="nav-icon ${it.cls}" href="${it.href}" target="_blank" rel="noopener noreferrer" aria-label="${it.cls}">${it.icon}</a>`).join('');
-    }
-
-    /* ---------- Particles (DOM based subtle floating dots) ---------- */
-    function createParticles() {
-      const particles = document.getElementById('particles');
-      particles.innerHTML = '';
-      const count = Math.max(28, Math.round(window.innerWidth / 40)); // responsive count
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.top = Math.random() * 100 + '%';
-        const size = (Math.random() * 3) + 0.7;
-        p.style.width = p.style.height = size + 'px';
-        p.style.opacity = (0.08 + Math.random() * 0.6).toString();
-        p.style.animationDelay = (Math.random() * 10) + 's';
-        p.style.animationDuration = (12 + Math.random() * 20) + 's';
-        particles.appendChild(p);
+    function loop() {
+      typedText.innerHTML = currentPhrase.join('');
+      if (!isDeleting && j <= phrases[i].length) {
+        currentPhrase.push(phrases[i][j]);
+        j++;
       }
-    }
-
-    /* ---------- Skills population (cards) ---------- */
-    function populateSkills() {
-      const skillsGrid = document.getElementById('skillsGrid');
-      skillsGrid.innerHTML = '';
-      const skills = portfolioData.skills || [];
-      skills.forEach((skill, index) => {
-        const card = document.createElement('div');
-        card.className = 'skill-card';
-        card.innerHTML = `<h3>${skill}</h3>`;
-        card.style.animationDelay = (index * 0.08) + 's';
-        skillsGrid.appendChild(card);
-      });
-    }
-
-    /* ---------- Projects ---------- */
-    function populateProjects() {
-      const projectsGrid = document.getElementById('projectsGrid');
-      projectsGrid.innerHTML = '';
-      const projects = portfolioData.projects || [];
-      projects.forEach((project, index) => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        card.innerHTML = `
-          <h3 class="project-title">${project.title}</h3>
-          <p style="color: #bdbdbd; line-height:1.6;">${project.desc || ''}</p>
-        `;
-        card.style.animationDelay = (index * 0.12) + 's';
-        projectsGrid.appendChild(card);
-      });
-    }
-
-    /* ---------- Contact (icon-only cards) ---------- */
-    function populateContact() {
-      const contactGrid = document.getElementById('contactGrid');
-      contactGrid.innerHTML = '';
-      const c = portfolioData.contact || {};
-      const items = [
-        { icon: '<i class="fab fa-linkedin-in"></i>', label: 'LinkedIn', url: c.linkedin || '#' },
-        { icon: '<i class="fab fa-github"></i>', label: 'GitHub', url: c.github || '#' },
-        { icon: '<i class="fas fa-envelope"></i>', label: 'Email', url: `mailto:${c.email || ''}` }
-      ];
-      items.forEach((item, i) => {
-        const a = document.createElement('a');
-        a.className = 'contact-card';
-        a.href = item.url;
-        a.target = item.label !== 'Email' ? '_blank' : '';
-        a.innerHTML = `<span class="contact-icon">${item.icon}</span><span class="contact-label">${item.label}</span>`;
-        a.style.animationDelay = (i * 0.08) + 's';
-        contactGrid.appendChild(a);
-      });
-    }
-
-    /* ---------- Typing effect (single-run) ---------- */
-    function typeWriter(element, text, speed = 80) {
-      let i = 0;
-      element.innerHTML = '';
-      function type() {
-        if (i < text.length) {
-          element.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, speed);
-        }
+      if (isDeleting && j <= phrases[i].length) {
+        currentPhrase.pop();
+        j--;
       }
-      type();
-    }
-
-    /* ---------- Typing loop for tagline (cycles phrases) ---------- */
-    function typeWriterLoop(element, baseText, speed = 40) {
-      // if tagline is a long single string, we show as is; if multiple phrases (comma separated), cycle them
-      const phrases = (portfolioData.tagline && portfolioData.tagline.length > 5) ? [portfolioData.tagline] :
-        (portfolioData.title ? [portfolioData.title] : ["Python · ML · Supply Chain · Product"]);
-      let pi = 0, ci = 0, forward = true, hold = 0;
-      element.textContent = '';
-      function step(){
-        const str = phrases[pi];
-        if (forward) {
-          element.textContent = str.slice(0, ++ci);
-          if (ci === str.length) { forward = false; hold = 18; }
-        } else {
-          if (hold > 0) { hold--; }
-          else {
-            element.textContent = str.slice(0, --ci);
-            if (ci === 0) { forward = true; pi = (pi + 1) % phrases.length; }
-          }
-        }
-        setTimeout(step, forward ? speed : speed / 1.6);
+      if (j === phrases[i].length) {
+        isDeleting = true;
+        setTimeout(loop, 1500); // pause before deleting
+        return;
       }
-      step();
-    }
-
-    /* ---------- Scroll animations (on-load and on-scroll reveal) ---------- */
-    function animateOnScroll() {
-      const elements = document.querySelectorAll('.section-title, .glass-card, .skill-card, .project-card, .contact-card');
-      elements.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        const offset = 140;
-        if (rect.top < window.innerHeight - offset) element.classList.add('animate');
-      });
-    }
-
-    /* ---------- Scroll progress ---------- */
-    function updateScrollProgress() {
-      const scrollProgress = document.getElementById('scrollProgress');
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollTop = window.scrollY;
-      const progress = (scrollTop / (scrollHeight || 1)) * 100;
-      scrollProgress.style.width = progress + '%';
-    }
-
-    /* ---------- Navbar scroll effect ---------- */
-    function handleNavbarScroll() {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 60) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
-    }
-
-    /* ---------- Smooth nav scroll ---------- */
-    document.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
-        const href = e.target.getAttribute('href');
-        const el = document.querySelector(href);
-        if (el) {
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
       }
+      setTimeout(loop, isDeleting ? 80 : 120);
+    }
+    loop();
+
+    // ScrollReveal animations
+    ScrollReveal().reveal('.content-section h2', { 
+      delay: 200, distance: '30px', origin: 'bottom', duration: 800 
     });
-
-    /* ---------- Events ---------- */
-    document.addEventListener('DOMContentLoaded', () => {
-      animateOnScroll();
-      window.addEventListener('scroll', () => {
-        animateOnScroll();
-        updateScrollProgress();
-        handleNavbarScroll();
-      });
-      // responsive: re-create particles on resize to adapt count & positions
-      window.addEventListener('resize', () => { createParticles(); });
+    ScrollReveal().reveal('.skill-card, .project-card', { 
+      interval: 120, distance: '40px', origin: 'bottom', duration: 800 
+    });
+    ScrollReveal().reveal('.subtitle, .tagline, .socials', { 
+      delay: 400, distance: '20px', origin: 'bottom', duration: 800 
     });
   </script>
 </body>
