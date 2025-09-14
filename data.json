@@ -1,14 +1,14 @@
 {
   "name": "Satyendra Varma DN",
-  "title": "Techno-Functional Consultant | Business Analyst | AI & Supply Chain Enthusiast",
-  "about": "I am a techno-functional consultant blending business acumen and technical depth. Experienced in SAP, analytics, and business process optimization.",
-  "skills": ["Business Analysis", "SAP", "Python", "React", "UI/UX Design", "AI/ML", "Supply Chain Management"],
-  "projects": [
-    {"title":"AI AgriTech Startup","desc":"Next-gen AgriTech solution using IoT and AI for optimized crop management."},
-    {"title":"Scrap Management App","desc":"Web-based platform to manage scrap collection, tracking, and analytics."},
-    {"title":"Transport Fleet Tracker","desc":"Vehicle monitoring system with real-time data, route optimization, and reporting."}
+  "title": "Techno-Functional Consultant | Business Analyst",
+  "about": "I am a techno-functional consultant blending business acumen and technical depth.",
+  "skills": ["Business Analysis","SAP","Python","React","UI/UX Design","AI/ML","Supply Chain Management"],
+  "projects":[
+    {"title":"AI AgriTech Startup","desc":"IoT & AI optimized crop management."},
+    {"title":"Scrap Management App","desc":"Web platform for scrap tracking & analytics."},
+    {"title":"Transport Fleet Tracker","desc":"Real-time vehicle monitoring & route optimization."}
   ],
-  "contact": {
+  "contact":{
     "linkedin":"https://www.linkedin.com/in/satyendra-varma-dn-472288280/",
     "github":"https://github.com/yourusername",
     "email":"contact@satyendravarma.com"
