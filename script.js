@@ -24,8 +24,3 @@ function loop() {
   setTimeout(loop, isDeleting ? 80 : 120);
 }
 loop();
-
-// ScrollReveal Animations
-ScrollReveal().reveal('.glass-card', {
-  delay: 200, distance: '40px', origin: 'bottom', duration: 800, interval: 150
-});
