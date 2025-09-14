@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading... | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading... | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Scroll Progress -->
-  <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scrollProgress"></div>
+  </div>
 
-  <!-- Connected Network Background -->
+  <!-- Tech Nodes Network -->
   <canvas id="networkCanvas"></canvas>
 
   <!-- Navigation -->
@@ -32,9 +33,16 @@
   <!-- Hero Section -->
   <section id="hero" class="hero">
     <div class="hero-content">
-      <h1 class="hero-title"><span id="typingName">Loading...</span></h1>
-      <p class="hero-subtitle"><span class="typing-text" id="typingTitle">Loading...</span></p>
-      <a href="#about" class="cta-button">Explore My Work ↓</a>
+      <h1 class="hero-title">
+        <span id="typingName">Loading...</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="typing-text" id="typingTitle">Loading...</span>
+      </p>
+      <a href="#about" class="cta-button">
+        <span>Explore My Work</span>
+        <span>↓</span>
+      </a>
     </div>
   </section>
 
@@ -42,7 +50,11 @@
   <section id="about" class="section">
     <div class="container">
       <h2 class="section-title">About Me</h2>
-      <div class="glass-card"><p id="aboutText">Loading about info...</p></div>
+      <div class="glass-card">
+        <p id="aboutText" style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
+          Loading about information...
+        </p>
+      </div>
     </div>
   </section>
 
@@ -75,6 +87,6 @@
     <p>© 2025 <span id="footerName">Loading...</span> | Built with Innovation & Passion</p>
   </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
