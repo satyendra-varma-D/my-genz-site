@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading... | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading... | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Scroll Progress -->
-  <div class="scroll-indicator">
-    <div class="scroll-progress" id="scrollProgress"></div>
-  </div>
 
-  <!-- Animated Background -->
-  <div class="bg-wrapper"></div>
-  <div class="particles" id="particles"></div>
+  <!-- Scroll Progress -->
+  <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
+
+  <!-- Connected Network Background -->
+  <canvas id="networkCanvas"></canvas>
 
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
-      <div class="logo">Wegroup</div>
+      <div class="logo">SV.DEV</div>
       <div class="nav-links">
         <a href="#hero">Home</a>
         <a href="#about">About</a>
@@ -34,16 +32,9 @@
   <!-- Hero Section -->
   <section id="hero" class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">
-        <span id="typingName">Loading...</span>
-      </h1>
-      <p class="hero-subtitle">
-        <span class="typing-text" id="typingTitle">Loading...</span>
-      </p>
-      <a href="#about" class="cta-button">
-        <span>Explore My Work</span>
-        <span>↓</span>
-      </a>
+      <h1 class="hero-title"><span id="typingName">Loading...</span></h1>
+      <p class="hero-subtitle"><span class="typing-text" id="typingTitle">Loading...</span></p>
+      <a href="#about" class="cta-button">Explore My Work ↓</a>
     </div>
   </section>
 
@@ -51,11 +42,7 @@
   <section id="about" class="section">
     <div class="container">
       <h2 class="section-title">About Me</h2>
-      <div class="glass-card">
-        <p id="aboutText" style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
-          Loading about information...
-        </p>
-      </div>
+      <div class="glass-card"><p id="aboutText">Loading about info...</p></div>
     </div>
   </section>
 
@@ -88,147 +75,6 @@
     <p>© 2025 <span id="footerName">Loading...</span> | Built with Innovation & Passion</p>
   </footer>
 
-  <!-- SCRIPT -->
-  <script>
-    let portfolioData = {};
-
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => { portfolioData = data; initializeContent(); })
-      .catch(error => {
-        console.error('Error loading data.json:', error);
-        portfolioData = {
-          name: "Satyendra Varma DN",
-          title: "Techno-Functional Consultant",
-          about: "Loading...",
-          skills: ["Loading..."],
-          projects: [{ title: "Loading...", desc: "Loading..." }],
-          contact: { linkedin: "#", github: "#", email: "contact@example.com" }
-        };
-        initializeContent();
-      });
-
-    function initializeContent() {
-      populateBasicInfo();
-      createParticles();
-      populateSkills();
-      populateProjects();
-      populateContact();
-      animateOnScroll();
-      setTimeout(() => { typeWriter(document.getElementById('typingName'), portfolioData.name, 80); }, 500);
-      setTimeout(() => { typeWriter(document.getElementById('typingTitle'), portfolioData.title, 50); }, 2500);
-    }
-
-    function populateBasicInfo() {
-      document.title = portfolioData.name + " | Portfolio";
-      document.getElementById('footerName').textContent = portfolioData.name;
-      document.getElementById('aboutText').textContent = portfolioData.about;
-    }
-
-    function createParticles() {
-      const particles = document.getElementById('particles');
-      particles.innerHTML = '';
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.width = particle.style.height = (Math.random() * 4 + 1) + 'px';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 20) + 's';
-        particles.appendChild(particle);
-      }
-    }
-
-    function populateSkills() {
-      const skillsGrid = document.getElementById('skillsGrid');
-      skillsGrid.innerHTML = '';
-      portfolioData.skills.forEach((skill, index) => {
-        const skillCard = document.createElement('div');
-        skillCard.className = 'skill-card';
-        skillCard.innerHTML = `<h3>${skill}</h3>`;
-        skillCard.style.animationDelay = (index * 0.1) + 's';
-        skillsGrid.appendChild(skillCard);
-      });
-    }
-
-    function populateProjects() {
-      const projectsGrid = document.getElementById('projectsGrid');
-      projectsGrid.innerHTML = '';
-      portfolioData.projects.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `<h3 class="project-title">${project.title}</h3>
-                                 <p style="color: #b0b0b0; line-height: 1.6;">${project.desc}</p>`;
-        projectCard.style.animationDelay = (index * 0.2) + 's';
-        projectsGrid.appendChild(projectCard);
-      });
-    }
-
-    function populateContact() {
-      const contactGrid = document.getElementById('contactGrid');
-      contactGrid.innerHTML = '';
-      const contactItems = [
-        { icon: '💼', label: 'LinkedIn', url: portfolioData.contact.linkedin },
-        { icon: '🚀', label: 'GitHub', url: portfolioData.contact.github },
-        { icon: '📧', label: 'Email', url: `mailto:${portfolioData.contact.email}` }
-      ];
-      contactItems.forEach((item, index) => {
-        const contactCard = document.createElement('a');
-        contactCard.className = 'contact-card';
-        contactCard.href = item.url;
-        contactCard.target = item.label !== 'Email' ? '_blank' : '';
-        contactCard.innerHTML = `<span>${item.icon}</span><span>${item.label}</span>`;
-        contactCard.style.animationDelay = (index * 0.1) + 's';
-        contactGrid.appendChild(contactCard);
-      });
-    }
-
-    function typeWriter(element, text, speed = 100) {
-      let i = 0; element.innerHTML = '';
-      function type() {
-        if (i < text.length) { element.innerHTML += text.charAt(i); i++; setTimeout(type, speed); }
-      }
-      type();
-    }
-
-    function animateOnScroll() {
-      const elements = document.querySelectorAll('.section-title, .glass-card, .skill-card, .project-card, .contact-card');
-      elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < window.innerHeight - elementVisible) element.classList.add('animate');
-      });
-    }
-
-    function updateScrollProgress() {
-      const scrollProgress = document.getElementById('scrollProgress');
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollTop = window.scrollY;
-      scrollProgress.style.width = (scrollTop / scrollHeight) * 100 + '%';
-    }
-
-    function handleNavbarScroll() {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      animateOnScroll();
-      window.addEventListener('scroll', function() {
-        animateOnScroll();
-        updateScrollProgress();
-        handleNavbarScroll();
-      });
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
