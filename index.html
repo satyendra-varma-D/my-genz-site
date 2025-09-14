@@ -1,136 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio | Loading...</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://kit.fontawesome.com/2c7fc28a2f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Live background image + overlay -->
-  <div class="bg-media" id="bgMedia" aria-hidden="true"></div>
-  <div class="bg-overlay"></div>
 
-  <!-- Particle canvas (subtle dots/lines) -->
-  <canvas id="particlesCanvas" class="particles-canvas" aria-hidden="true"></canvas>
-
-  <!-- Top nav (logo + links) -->
-  <header class="nav" id="nav">
-    <div class="nav-inner">
-      <div class="logo" id="logo">LOADING...</div>
-      <nav class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="social-inline" id="socialInline">
-        <!-- icon-only buttons inserted by JS -->
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="menu">☰</button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-inner">
-        <h1 class="hero-title">
-          <span id="typingName">Loading...</span>
-        </h1>
-        <p class="hero-tagline" id="typingTitle">Loading...</p>
-
-        <div class="hero-cta">
-          <a href="#projects" class="cta primary">View Projects</a>
-          <a href="#contact" class="cta outline">Get in Touch</a>
-        </div>
-
-        <div class="hero-mini">
-          <div class="hero-stats" id="heroStats">
-            <!-- small stat chips inserted by JS -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section card">
-      <div class="container">
-        <h2>About</h2>
-        <div class="about-grid">
-          <div class="about-text" id="aboutText">
-            Loading...
-          </div>
-          <div class="about-visual">
-            <canvas id="miniNetwork" class="mini-network" aria-hidden="true"></canvas>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section card">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <div class="skills-left">
-            <canvas id="skillsRadar" width="400" height="400"></canvas>
-          </div>
-          <div class="skills-right" id="skillsList">
-            <!-- list + bars dynamically inserted -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section card">
-      <div class="container">
-        <h2>Selected Projects</h2>
-        <div class="projects-grid" id="projectsGrid">
-          <!-- project cards from data.json -->
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section card">
-      <div class="container contact-grid">
-        <div>
-          <h2>Contact</h2>
-          <p id="contactText">Loading...</p>
-        </div>
-        <div class="contact-actions" id="contactActions">
-          <!-- social buttons -->
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <small id="footerText">© 2025 — Loading...</small>
-      </div>
-    </footer>
-  </main>
-
-  <!-- Project Modal -->
-  <div class="modal" id="projectModal" aria-hidden="true">
-    <div class="modal-inner">
-      <button class="modal-close" id="modalClose" aria-label="close">✕</button>
-      <div id="modalContent"></div>
-    </div>
+  <!-- Background -->
+  <div class="bg-wrapper">
+    <div class="bg-overlay"></div>
   </div>
 
-  <!-- Script -->
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">Pavan</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="glow-text">Pavan</h1>
+    <h2 class="subtitle">Tech Professional | Data & AI Explorer</h2>
+    <p class="tagline">Figma • Python • Power BI • Tableau • Data Science • Deep Learning</p>
+    <div class="socials">
+      <a href="mailto:youremail@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/yourgithub" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="content-section">
+    <h2>About Me</h2>
+    <p>
+      Experienced professional blending tech, research, and analytics. Pro in Figma for design, Python for
+      development, and advanced analytics tools like Power BI, Tableau, and Pandas. Strong grip in
+      Machine Learning and Deep Learning — building solutions that are both impactful and elegant.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="content-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Figma</div>
+      <div class="skill-card">Power BI</div>
+      <div class="skill-card">Tableau</div>
+      <div class="skill-card">Pandas</div>
+      <div class="skill-card">Machine Learning</div>
+      <div class="skill-card">Deep Learning</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="content-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">Project 1</div>
+      <div class="project-card">Project 2</div>
+      <div class="project-card">Project 3</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="content-section">
+    <h2>Contact</h2>
+    <p>Let's collaborate and build something extraordinary.</p>
+    <a href="mailto:youremail@gmail.com" class="contact-btn">Send Email</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Pavan. All Rights Reserved.</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
