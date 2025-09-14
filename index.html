@@ -14,7 +14,6 @@
   <div class="bg-wrapper">
     <video autoplay muted loop playsinline id="bg-video">
       <source src="https://player.vimeo.com/external/449973375.sd.mp4?s=2c91cc1af2cf96c435b7b5933ce6d7e2a1f4b92b&profile_id=164" type="video/mp4">
-      <!-- fallback if video fails -->
     </video>
     <div class="bg-overlay"></div>
   </div>
@@ -36,21 +35,22 @@
   <section class="hero">
     <h1 class="glow-text">Pavan</h1>
     <h2 class="subtitle"><span id="typed-text"></span></h2>
-    <p class="tagline">Figma • Python • Power BI • Tableau • Pandas • Machine Learning • Deep Learning</p>
+    <p class="tagline">AI • Data • Design • Strategy</p>
     <div class="socials">
       <a href="mailto:youremail@gmail.com" class="icon-btn"><i class="fas fa-envelope"></i></a>
       <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/yourgithub" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
     </div>
+    <a href="#about" class="scroll-down">▼</a>
   </section>
 
   <!-- Sections -->
-  <section id="about" class="content-section">
+  <section id="about" class="content-section glass-card">
     <h2>About Me</h2>
-    <p>Experienced professional blending tech, research, and analytics. Pro in Figma for design, Python for development, and advanced analytics tools like Power BI, Tableau, and Pandas. Strong grip in Machine Learning and Deep Learning — building solutions that are both impactful and elegant.</p>
+    <p>Young MBA in Supply Chain with tech roots in MCA. Experienced across domains — blending analytics, design, and business strategy. Skilled in Python, Figma, Power BI, Tableau, Machine Learning, and Deep Learning. I believe in building elegant, impactful solutions.</p>
   </section>
 
-  <section id="skills" class="content-section">
+  <section id="skills" class="content-section glass-card">
     <h2>Skills</h2>
     <div class="skills-grid">
       <div class="skill-card">Python</div>
@@ -63,18 +63,18 @@
     </div>
   </section>
 
-  <section id="projects" class="content-section">
+  <section id="projects" class="content-section glass-card">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">Project 1</div>
-      <div class="project-card">Project 2</div>
-      <div class="project-card">Project 3</div>
+      <div class="project-card">🚀 Supply Chain Analytics Dashboard</div>
+      <div class="project-card">🌱 AgriTech AI Platform</div>
+      <div class="project-card">♻️ Scrap Management System</div>
     </div>
   </section>
 
-  <section id="contact" class="content-section">
+  <section id="contact" class="content-section glass-card">
     <h2>Contact</h2>
-    <p>Let's collaborate and build something extraordinary.</p>
+    <p>Let’s connect and create something extraordinary.</p>
     <a href="mailto:youremail@gmail.com" class="contact-btn">Send Email</a>
   </section>
 
@@ -82,39 +82,6 @@
     <p>© 2025 Pavan. All Rights Reserved.</p>
   </footer>
 
-  <!-- Inline Script -->
-  <script>
-    // Typing effect
-    const typedText = document.getElementById("typed-text");
-    const phrases = ["Tech Professional", "Data & AI Explorer", "Creative Problem Solver"];
-    let i = 0, j = 0, currentPhrase = [], isDeleting = false;
-
-    function loop() {
-      typedText.innerHTML = currentPhrase.join('');
-      if (!isDeleting && j <= phrases[i].length) {
-        currentPhrase.push(phrases[i][j]);
-        j++;
-      }
-      if (isDeleting && j <= phrases[i].length) {
-        currentPhrase.pop();
-        j--;
-      }
-      if (j === phrases[i].length) {
-        isDeleting = true;
-        setTimeout(loop, 1500); return;
-      }
-      if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % phrases.length;
-      }
-      setTimeout(loop, isDeleting ? 80 : 120);
-    }
-    loop();
-
-    // ScrollReveal
-    ScrollReveal().reveal('.content-section h2', { delay: 200, distance: '30px', origin: 'bottom', duration: 800 });
-    ScrollReveal().reveal('.skill-card, .project-card', { interval: 120, distance: '40px', origin: 'bottom', duration: 800 });
-    ScrollReveal().reveal('.subtitle, .tagline, .socials', { delay: 400, distance: '20px', origin: 'bottom', duration: 800 });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
