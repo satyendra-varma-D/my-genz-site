@@ -10,11 +10,11 @@
 </head>
 <body>
 
-  <!-- Background -->
+  <!-- Background Video -->
   <div class="bg-wrapper">
     <video autoplay muted loop playsinline id="bg-video">
-      <source src="https://cdn.coverr.co/videos/coverr-futuristic-digital-grid-6279/1080p.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      <source src="https://player.vimeo.com/external/449973375.sd.mp4?s=2c91cc1af2cf96c435b7b5933ce6d7e2a1f4b92b&profile_id=164" type="video/mp4">
+      <!-- fallback if video fails -->
     </video>
     <div class="bg-overlay"></div>
   </div>
@@ -44,17 +44,12 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- Sections -->
   <section id="about" class="content-section">
     <h2>About Me</h2>
-    <p>
-      Experienced professional blending tech, research, and analytics. Pro in Figma for design, Python for
-      development, and advanced analytics tools like Power BI, Tableau, and Pandas. Strong grip in
-      Machine Learning and Deep Learning — building solutions that are both impactful and elegant.
-    </p>
+    <p>Experienced professional blending tech, research, and analytics. Pro in Figma for design, Python for development, and advanced analytics tools like Power BI, Tableau, and Pandas. Strong grip in Machine Learning and Deep Learning — building solutions that are both impactful and elegant.</p>
   </section>
 
-  <!-- Skills -->
   <section id="skills" class="content-section">
     <h2>Skills</h2>
     <div class="skills-grid">
@@ -68,7 +63,6 @@
     </div>
   </section>
 
-  <!-- Projects -->
   <section id="projects" class="content-section">
     <h2>Projects</h2>
     <div class="projects-grid">
@@ -78,7 +72,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="content-section">
     <h2>Contact</h2>
     <p>Let's collaborate and build something extraordinary.</p>
@@ -91,7 +84,7 @@
 
   <!-- Inline Script -->
   <script>
-    // Typing effect for subtitle
+    // Typing effect
     const typedText = document.getElementById("typed-text");
     const phrases = ["Tech Professional", "Data & AI Explorer", "Creative Problem Solver"];
     let i = 0, j = 0, currentPhrase = [], isDeleting = false;
@@ -108,8 +101,7 @@
       }
       if (j === phrases[i].length) {
         isDeleting = true;
-        setTimeout(loop, 1500); // pause before deleting
-        return;
+        setTimeout(loop, 1500); return;
       }
       if (isDeleting && j === 0) {
         isDeleting = false;
@@ -119,16 +111,10 @@
     }
     loop();
 
-    // ScrollReveal animations
-    ScrollReveal().reveal('.content-section h2', { 
-      delay: 200, distance: '30px', origin: 'bottom', duration: 800 
-    });
-    ScrollReveal().reveal('.skill-card, .project-card', { 
-      interval: 120, distance: '40px', origin: 'bottom', duration: 800 
-    });
-    ScrollReveal().reveal('.subtitle, .tagline, .socials', { 
-      delay: 400, distance: '20px', origin: 'bottom', duration: 800 
-    });
+    // ScrollReveal
+    ScrollReveal().reveal('.content-section h2', { delay: 200, distance: '30px', origin: 'bottom', duration: 800 });
+    ScrollReveal().reveal('.skill-card, .project-card', { interval: 120, distance: '40px', origin: 'bottom', duration: 800 });
+    ScrollReveal().reveal('.subtitle, .tagline, .socials', { delay: 400, distance: '20px', origin: 'bottom', duration: 800 });
   </script>
 </body>
 </html>
