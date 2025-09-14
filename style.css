@@ -14,12 +14,50 @@ html, body { font-family: 'Inter', sans-serif; background: #0b0f19; color: #f5f5
 /* -----------------------
    NAVBAR
 ------------------------ */
-#navbar { position: fixed; top: 0; width: 100%; padding: 20px 10%; display: flex; justify-content: center; transition: all 0.3s ease; z-index: 999; }
-#navbar.scrolled { background: rgba(15, 20, 30, 0.8); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-.nav-container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; color: #00c6ff; }
-.nav-links a { margin-left: 20px; text-decoration: none; color: #ddd; font-weight: 500; transition: color 0.3s ease; }
-.nav-links a:hover { color: #00c6ff; }
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 10%;      /* reduced padding for slimmer look */
+  display: flex;
+  justify-content: center;
+  align-items: center;    /* ensures vertical centering */
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+#navbar.scrolled {
+  background: rgba(15, 20, 30, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;      /* slightly smaller for modern feel */
+  letter-spacing: 1.5px;
+  color: #00c6ff;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;     /* slightly smaller and elegant */
+}
+
+.nav-links a:hover {
+  color: #00c6ff;
+}
 
 /* -----------------------
    HERO
