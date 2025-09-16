@@ -12,24 +12,20 @@ fetch("data.json")
 
     // Skills
     const skillsList = document.getElementById("skills-list");
-    skillsList.innerHTML = ""; // clear in case of reload
     data.skills.forEach(skill => {
       const div = document.createElement("div");
-      div.className = "p-4 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
+      div.className = "p-4 bg-gray-800 rounded-lg shadow-lg";
       div.textContent = skill;
       skillsList.appendChild(div);
     });
 
     // Projects
     const projectsList = document.getElementById("projects-list");
-    projectsList.innerHTML = ""; // clear in case of reload
     data.projects.forEach(p => {
       const card = document.createElement("div");
-      card.className = "p-6 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
-      card.innerHTML = `
-        <h3 class="text-xl font-bold mb-2">${p.title}</h3>
-        <p class="text-gray-300">${p.desc}</p>
-      `;
+      card.className = "p-6 bg-gray-800 rounded-lg shadow-lg";
+      card.innerHTML = `<h3 class="text-xl font-bold mb-2">${p.title}</h3>
+                        <p class="text-gray-300">${p.desc}</p>`;
       projectsList.appendChild(card);
     });
 
@@ -42,10 +38,9 @@ fetch("data.json")
     `;
 
     // GSAP Animations
-    gsap.from("#name", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
+    gsap.from("#name", { duration: 1.2, y: -50, opacity: 0, ease: "bounce" });
     gsap.from("#title", { duration: 1, y: 50, opacity: 0, delay: 0.5 });
     gsap.from("#tagline", { duration: 1, opacity: 0, delay: 1 });
-    gsap.from("nav", { duration: 1, y: -100, opacity: 0 });
 
     gsap.utils.toArray("section").forEach(section => {
       gsap.from(section.children, {
