@@ -1,12 +1,19 @@
-body {
-  scroll-behavior: smooth;
+/* Overlay gradient animations for premium effect */
+#bg-video {
+  filter: brightness(0.5) contrast(1.2);
+  transition: filter 0.5s;
 }
-nav a {
-  transition: color 0.3s ease;
-}
+
 section {
-  padding-top: 80px; /* offset for fixed navbar */
+  opacity: 0;
 }
 
+/* Skills & Projects cards hover effect */
+#skills-list div, #projects-list div {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-
+#skills-list div:hover, #projects-list div:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
