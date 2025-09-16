@@ -12,6 +12,7 @@ fetch("data.json")
 
     // Skills
     const skillsList = document.getElementById("skills-list");
+    skillsList.innerHTML = ""; // clear in case of reload
     data.skills.forEach(skill => {
       const div = document.createElement("div");
       div.className = "p-4 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
@@ -21,11 +22,14 @@ fetch("data.json")
 
     // Projects
     const projectsList = document.getElementById("projects-list");
+    projectsList.innerHTML = ""; // clear in case of reload
     data.projects.forEach(p => {
       const card = document.createElement("div");
       card.className = "p-6 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
-      card.innerHTML = `<h3 class="text-xl font-bold mb-2">${p.title}</h3>
-                        <p class="text-gray-300">${p.desc}</p>`;
+      card.innerHTML = `
+        <h3 class="text-xl font-bold mb-2">${p.title}</h3>
+        <p class="text-gray-300">${p.desc}</p>
+      `;
       projectsList.appendChild(card);
     });
 
