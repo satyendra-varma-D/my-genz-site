@@ -1,62 +1,59 @@
-const canvas = document.getElementById("shaderCanvas");
-const gl = canvas.getContext("webgl");
+// Load portfolio data
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    // Hero
+    document.getElementById("name").textContent = data.name;
+    document.getElementById("title").textContent = data.title;
+    document.getElementById("tagline").textContent = data.tagline;
 
-// Resize canvas
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  gl.viewport(0, 0, canvas.width, canvas.height);
-}
-window.addEventListener("resize", resize);
-resize();
+    // About
+    document.getElementById("about-text").textContent = data.about;
 
-// Compile shader
-function compileShader(src, type) {
-  const shader = gl.createShader(type);
-  gl.shaderSource(shader, src);
-  gl.compileShader(shader);
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    console.error("Shader error:", gl.getShaderInfoLog(shader));
-  }
-  return shader;
-}
+    // Skills
+    const skillsList = document.getElementById("skills-list");
+    data.skills.forEach(skill => {
+      const div = document.createElement("div");
+      div.className = "p-4 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
+      div.textContent = skill;
+      skillsList.appendChild(div);
+    });
 
-// Create program
-const fragShader = compileShader(document.getElementById("fragShader").textContent, gl.FRAGMENT_SHADER);
-const vertShader = compileShader(`
-  attribute vec4 position;
-  void main() {
-    gl_Position = position;
-  }
-`, gl.VERTEX_SHADER);
+    // Projects
+    const projectsList = document.getElementById("projects-list");
+    data.projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "p-6 bg-gray-700 rounded-lg shadow hover:scale-105 transform transition";
+      card.innerHTML = `<h3 class="text-xl font-bold mb-2">${p.title}</h3>
+                        <p class="text-gray-300">${p.desc}</p>`;
+      projectsList.appendChild(card);
+    });
 
-const program = gl.createProgram();
-gl.attachShader(program, vertShader);
-gl.attachShader(program, fragShader);
-gl.linkProgram(program);
-gl.useProgram(program);
+    // Contact
+    const contactLinks = document.getElementById("contact-links");
+    contactLinks.innerHTML = `
+      <a href="${data.contact.linkedin}" target="_blank" class="hover:text-blue-400">LinkedIn</a>
+      <a href="${data.contact.github}" target="_blank" class="hover:text-blue-400">GitHub</a>
+      <a href="mailto:${data.contact.email}" class="hover:text-blue-400">Email</a>
+    `;
 
-// Setup geometry
-const buffer = gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-  -1, -1,  1, -1, -1, 1,
-  -1,  1,  1, -1,  1, 1
-]), gl.STATIC_DRAW);
+    // GSAP Animations
+    gsap.from("#name", { duration: 1, y: -50, opacity: 0, ease: "bounce" });
+    gsap.from("#title", { duration: 1, y: 50, opacity: 0, delay: 0.5 });
+    gsap.from("#tagline", { duration: 1, opacity: 0, delay: 1 });
+    gsap.from("nav", { duration: 1, y: -100, opacity: 0 });
 
-const positionLoc = gl.getAttribLocation(program, "position");
-gl.enableVertexAttribArray(positionLoc);
-gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
-
-// Uniforms
-const timeLoc = gl.getUniformLocation(program, "time");
-const resolutionLoc = gl.getUniformLocation(program, "resolution");
-
-// Animation loop
-function render(t) {
-  gl.uniform1f(timeLoc, t * 0.001);
-  gl.uniform2f(resolutionLoc, canvas.width, canvas.height);
-  gl.drawArrays(gl.TRIANGLES, 0, 6);
-  requestAnimationFrame(render);
-}
-render(0);
+    gsap.utils.toArray("section").forEach(section => {
+      gsap.from(section.children, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2
+      });
+    });
+  })
+  .catch(err => console.error("Error loading data:", err));
