@@ -3,74 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satyendra Varma DN - Portfolio</title>
+  <title>Satyendra Varma DN | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Background Shader Canvas -->
-  <canvas id="shaderCanvas"></canvas>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-6 bg-gray-800 shadow-lg z-50">
+    <h1 class="text-xl font-bold">SV Portfolio</h1>
+    <ul class="flex space-x-6">
+      <li><a href="#hero" class="hover:text-blue-400">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-400">About</a></li>
+      <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+      <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Site Content -->
-  <div id="content">
-    <header class="hero">
-      <h1>Satyendra Varma DN</h1>
-      <p class="tagline">Techno-Functional Consultant</p>
-    </header>
+  <!-- Hero Section -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <h2 id="name" class="text-4xl md:text-6xl font-bold mb-4"></h2>
+    <p id="title" class="text-xl md:text-2xl text-gray-300 mb-4"></p>
+    <p id="tagline" class="text-lg text-gray-400"></p>
+    <div class="mt-6 space-x-4">
+      <a href="#about" class="px-6 py-2 bg-blue-500 rounded-lg hover:bg-blue-600">Explore More</a>
+      <a href="#contact" class="px-6 py-2 border border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white">Hire Me</a>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Passionate about technology, data, and building creative solutions. 
-        Experienced across supply chain, IoT, and oil & gas industries.
-      </p>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="min-h-screen flex flex-col justify-center items-center px-8 text-center">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p id="about-text" class="max-w-2xl text-gray-300"></p>
+  </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Business Analysis</li>
-        <li>SAP MM & Supply Chain</li>
-        <li>Data Analytics</li>
-        <li>Full-Stack Development</li>
-      </ul>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="min-h-screen bg-gray-800 flex flex-col justify-center items-center px-8">
+    <h2 class="text-3xl font-bold mb-6">Skills</h2>
+    <div id="skills-list" class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center"></div>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Scrap Management System</h3>
-        <p>A full-stack system to manage and optimize scrap material flows.</p>
-      </div>
-      <div class="project">
-        <h3>AI-driven AgriTech Platform</h3>
-        <p>Using ML models to optimize crop yield and sustainability.</p>
-      </div>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen flex flex-col justify-center items-center px-8">
+    <h2 class="text-3xl font-bold mb-6">Projects</h2>
+    <div id="projects-list" class="grid md:grid-cols-2 gap-6 w-full max-w-4xl"></div>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: satyendra@example.com</p>
-      <p>LinkedIn: <a href="#">linkedin.com/in/satyendra</a></p>
-    </section>
-  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen bg-gray-800 flex flex-col justify-center items-center px-8 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact</h2>
+    <p class="mb-4">Get in touch with me via email or connect on LinkedIn/GitHub!</p>
+    <div id="contact-links" class="flex space-x-6"></div>
+  </section>
 
-  <!-- Shaders -->
-  <script id="fragShader" type="x-shader/x-fragment">
-    precision highp float;
-    uniform vec2 resolution;
-    uniform float time;
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-6 text-gray-400">
+    © 2025 Satyendra Varma DN | Built with ❤️ using Tailwind & GSAP
+  </footer>
 
-    void main() {
-      vec2 uv = gl_FragCoord.xy / resolution.xy;
-      vec2 pos = uv - 0.5;
-      float r = length(pos) * 2.0;
-      float a = atan(pos.y,pos.x);
-      float f = 0.5 + 0.5*cos(time + r*5.0 - a*3.0);
-      vec3 col = vec3(0.2, 0.4, 0.8) * f + vec3(0.3, 0.1, 0.5);
-      gl_FragColor = vec4(col, 1.0);
-    }
-  </script>
-
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
