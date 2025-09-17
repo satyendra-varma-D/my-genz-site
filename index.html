@@ -1,122 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pavan | Portfolio 2030</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satyendra Varma DN - Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="bg-animation"></canvas>
-  <!-- Navigation -->
-  <header class="nav-header">
-    <nav class="navbar">
-      <div class="logo">Pavan<span class="accent">2030</span></div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <canvas id="bg-animation"></canvas> <!-- Three.js / particles -->
-    <div class="hero-content">
-      <h1>Hi, I’m <span class="highlight">Pavan</span></h1>
-      <h2 class="typewriter">
-        <span id="typed-text"></span>
-      </h2>
-      <p class="tagline">Bridging Business · Data · Technology</p>
-      <a href="#portfolio" class="cta-btn">Explore My Work</a>
+<!-- Starfield background -->
+<canvas id="starfield"></canvas>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <h1>Satyendra Varma DN</h1>
+  <h2>Techno-Functional Consultant | Business Analyst | AI & Supply Chain Enthusiast</h2>
+  <p class="tagline">Blending Business Analysis, SAP, and AI to deliver future-ready solutions</p>
+  <div class="hero-links">
+    <a href="https://www.linkedin.com/in/satyendra-varma-dn-472288280/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/satyendra.varma" target="_blank">GitHub</a>
+    <a href="mailto:satyendra.varma@example.com">Email</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a techno-functional consultant with a passion for bridging technology and business.
+    Experienced in SAP, supply chain, finance, procurement, and AI-driven solutions.
+    I love creating impactful solutions that connect systems, data, and people seamlessly.
+  </p>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <div class="skill">SAP ABAP</div>
+    <div class="skill">Supply Chain Management</div>
+    <div class="skill">Business Analysis</div>
+    <div class="skill">AI & Machine Learning</div>
+    <div class="skill">Data Analytics</div>
+    <div class="skill">IoT Integration</div>
+    <div class="skill">Project Management</div>
+    <div class="skill">Kotlin / Android Dev</div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <h3>AI-driven AgriTech Platform</h3>
+      <p>Developed a platform leveraging AI to optimize crop yield predictions and automate supply chain processes.</p>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="about-image">
-      <img src="assets/profile.jpg" alt="Pavan Profile" />
+    <div class="project-card">
+      <h3>Scrap Management System</h3>
+      <p>Built a full-stack solution for real-time tracking of scrap materials, with analytics and vendor management.</p>
     </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>
-        I connect processes, people, and platforms into scalable, future-ready solutions. 
-        With expertise across project management, business analysis, and AI/ML development, 
-        I craft strategies that don’t just work today but thrive tomorrow.
-      </p>
+    <div class="project-card">
+      <h3>IoT-based Transport Tracker</h3>
+      <p>Implemented a vehicle tracking system integrating IoT devices with real-time dashboards and alerts.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <h2>Core Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Project Management</div>
-      <div class="skill-card">Business Analysis</div>
-      <div class="skill-card">Functional Consulting</div>
-      <div class="skill-card">Data Analytics</div>
-      <div class="skill-card">Python & Flask</div>
-      <div class="skill-card">Django & AI/ML</div>
-    </div>
-  </section>
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:satyendra.varma@example.com">satyendra.varma@example.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/satyendra-varma-dn-472288280/" target="_blank">linkedin.com/in/satyendra-varma-dn-472288280/</a></p>
+  <p>GitHub: <a href="https://github.com/satyendra.varma" target="_blank">github.com/satyendra.varma</a></p>
+</section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio-section">
-    <h2>Featured Projects</h2>
-    <div class="portfolio-grid">
-      <div class="project-card">
-        <div class="project-overlay">
-          <h3>AI-Driven Dashboard</h3>
-          <p>Interactive data visualization for enterprise decision making.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-overlay">
-          <h3>Supply Chain Automation</h3>
-          <p>End-to-end digital transformation project using SAP + Python.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-overlay">
-          <h3>Business Process Optimizer</h3>
-          <p>AI/ML pipeline for forecasting demand and resource allocation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h2>Let’s Connect</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="social-links">
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
-      <a href="#">Twitter</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2030 Pavan | Future-Ready Portfolio</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
