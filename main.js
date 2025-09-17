@@ -142,4 +142,23 @@ function connectParticles() {
     }
   }
 }
-animateParticles();
+// ===================
+// Smooth scrolling, text effects, nav highlight
+// (your existing code here)
+// ===================
+
+
+// ===================
+// Neural Network Background Animation
+// ===================
+const canvas = document.getElementById("bg-animation");
+const ctx = canvas.getContext("2d");
+
+let nodes = [];
+const numNodes = 70;
+
+// resize, class Node, initNodes(), connectNodes(), animateNetwork()
+// (all the code I gave you goes here)
+
+// finally, run it
+animateNetwork();
