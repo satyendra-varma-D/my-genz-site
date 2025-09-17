@@ -1,58 +1,145 @@
-// Load portfolio data
-fetch("data.json")
-  .then(res => res.json())
-  .then(data => {
-    // Hero
-    document.getElementById("name").textContent = data.name;
-    document.getElementById("title").textContent = data.title;
-    document.getElementById("tagline").textContent = data.tagline;
+// ===== Typewriter Effect =====
+const typedText = document.getElementById("typed-text");
+const roles = [
+  "Project Manager",
+  "Business Analyst",
+  "Data Scientist",
+  "AI/ML Explorer",
+  "Functional Consultant"
+];
 
-    // About
-    document.getElementById("about-text").textContent = data.about;
+let roleIndex = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
 
-    // Skills
-    const skillsList = document.getElementById("skills-list");
-    data.skills.forEach(skill => {
-      const div = document.createElement("div");
-      div.className = "p-4 bg-gray-800 rounded-lg shadow-lg";
-      div.textContent = skill;
-      skillsList.appendChild(div);
+function typeEffect() {
+  if (isDeleting) {
+    currentText = roles[roleIndex].substring(0, charIndex--);
+  } else {
+    currentText = roles[roleIndex].substring(0, charIndex++);
+  }
+
+  typedText.textContent = currentText;
+
+  if (!isDeleting && charIndex === roles[roleIndex].length) {
+    setTimeout(() => (isDeleting = true), 1000); // pause before deleting
+  }
+
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length; // next word
+  }
+
+  setTimeout(typeEffect, isDeleting ? 60 : 120);
+}
+typeEffect();
+
+// ===== Smooth Scroll for Navbar =====
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
     });
+  });
+});
 
-    // Projects
-    const projectsList = document.getElementById("projects-list");
-    data.projects.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "p-6 bg-gray-800 rounded-lg shadow-lg";
-      card.innerHTML = `<h3 class="text-xl font-bold mb-2">${p.title}</h3>
-                        <p class="text-gray-300">${p.desc}</p>`;
-      projectsList.appendChild(card);
-    });
-
-    // Contact
-    const contactLinks = document.getElementById("contact-links");
-    contactLinks.innerHTML = `
-      <a href="${data.contact.linkedin}" target="_blank" class="hover:text-blue-400">LinkedIn</a>
-      <a href="${data.contact.github}" target="_blank" class="hover:text-blue-400">GitHub</a>
-      <a href="mailto:${data.contact.email}" class="hover:text-blue-400">Email</a>
-    `;
-
-    // GSAP Animations
-    gsap.from("#name", { duration: 1.2, y: -50, opacity: 0, ease: "bounce" });
-    gsap.from("#title", { duration: 1, y: 50, opacity: 0, delay: 0.5 });
-    gsap.from("#tagline", { duration: 1, opacity: 0, delay: 1 });
+// ===== GSAP Animations =====
+window.addEventListener("load", () => {
+  if (typeof gsap !== "undefined") {
+    gsap.from(".hero-content h1", { y: 50, opacity: 0, duration: 1 });
+    gsap.from(".hero-content h2", { y: 50, opacity: 0, duration: 1, delay: 0.3 });
+    gsap.from(".cta-btn", { scale: 0, opacity: 0, duration: 0.8, delay: 0.6 });
 
     gsap.utils.toArray("section").forEach(section => {
-      gsap.from(section.children, {
+      gsap.from(section, {
         scrollTrigger: {
           trigger: section,
           start: "top 80%",
         },
         y: 50,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.2
+        duration: 1
       });
     });
-  })
-  .catch(err => console.error("Error loading data:", err));
+  }
+});
+
+// ===== Particle Background =====
+const canvas = document.getElementById("bg-animation");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+const numParticles = 80;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = "#39ff14";
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < numParticles; i++) {
+    particles.push(new Particle());
+  }
+}
+initParticles();
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a; b < particles.length; b++) {
+      let dx = particles[a].x - particles[b].x;
+      let dy = particles[a].y - particles[b].y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 120) {
+        ctx.strokeStyle = "rgba(57, 255, 20, 0.1)";
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+animateParticles();
