@@ -1,20 +1,19 @@
-/* Basic Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Full-screen body */
+/* Body & Canvas */
 body, html {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
+  background: black;
   overflow-x: hidden;
   color: #00f0ff;
-  background: black;
 }
 
-/* Starfield canvas */
 canvas#starfield {
   position: fixed;
   top: 0;
@@ -22,7 +21,7 @@ canvas#starfield {
   z-index: 0;
 }
 
-/* Navigation Bar */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 20px;
@@ -36,40 +35,37 @@ canvas#starfield {
 }
 .navbar ul li a {
   color: #00f0ff;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
   transition: 0.3s;
 }
 .navbar ul li a:hover {
   color: #fff;
-  text-shadow: 0 0 10px #00f0ff;
+  text-shadow: 0 0 15px #00f0ff;
 }
 
 /* Hero Section */
 #hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 1;
   position: relative;
 }
-#hero h1 {
+.hero-content h1 {
   font-size: 4em;
   margin-bottom: 0.2em;
-  color: #00f0ff;
   text-shadow: 0 0 20px #00f0ff;
 }
-#hero h2 {
+.hero-content h2 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
   color: #a0f0ff;
 }
 .tagline {
   font-size: 1.2em;
-  color: #c0f8ff;
   margin-bottom: 20px;
 }
 .hero-links a {
@@ -89,16 +85,15 @@ canvas#starfield {
   box-shadow: 0 0 15px #00f0ff;
 }
 
-/* Section Titles */
+/* Sections */
 section {
   padding: 100px 50px;
-  position: relative;
   z-index: 1;
+  position: relative;
 }
 section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #00e0ff;
   text-shadow: 0 0 10px #00f0ff;
 }
 
@@ -123,7 +118,6 @@ section h2 {
   border-radius: 8px;
   font-weight: bold;
   transition: 0.3s;
-  cursor: default;
 }
 .skill:hover {
   background: #00f0ff;
@@ -167,7 +161,3 @@ section h2 {
 /* Responsive */
 @media (max-width: 768px) {
   #hero h1 { font-size: 3em; }
-  #hero h2 { font-size: 1.2em; }
-  .hero-links a { padding: 8px 15px; font-size: 0.9em; }
-  section { padding: 70px 30px; }
-}
