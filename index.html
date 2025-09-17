@@ -1,69 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satyendra Varma - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavan | Portfolio 2030</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
+  <!-- Navigation -->
+  <header class="nav-header">
+    <nav class="navbar">
+      <div class="logo">Pavan<span class="accent">2030</span></div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<body class="relative overflow-x-hidden text-white font-sans">
-  <!-- Video Background -->
-  <video autoplay muted loop id="bg-video" class="fixed top-0 left-0 w-full h-full object-cover z-0">
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2021-08/large_watermarked/210726_03_Flower_4k_001_preview.mp4"
-      type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <canvas id="bg-animation"></canvas> <!-- Three.js / particles -->
+    <div class="hero-content">
+      <h1>Hi, I’m <span class="highlight">Pavan</span></h1>
+      <h2 class="typewriter">
+        <span id="typed-text"></span>
+      </h2>
+      <p class="tagline">Bridging Business · Data · Technology</p>
+      <a href="#portfolio" class="cta-btn">Explore My Work</a>
+    </div>
+  </section>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-image">
+      <img src="assets/profile.jpg" alt="Pavan Profile" />
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I connect processes, people, and platforms into scalable, future-ready solutions. 
+        With expertise across project management, business analysis, and AI/ML development, 
+        I craft strategies that don’t just work today but thrive tomorrow.
+      </p>
+    </div>
+  </section>
 
-  <!-- Content -->
-  <div class="relative z-10 container mx-auto px-6 py-20">
-    <!-- Hero Section -->
-    <section id="hero" class="text-center mb-32">
-      <h1 id="name" class="text-5xl md:text-6xl font-bold mb-4"></h1>
-      <h2 id="title" class="text-2xl md:text-3xl mb-4"></h2>
-      <p id="tagline" class="text-lg md:text-xl text-gray-300"></p>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2>Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Project Management</div>
+      <div class="skill-card">Business Analysis</div>
+      <div class="skill-card">Functional Consulting</div>
+      <div class="skill-card">Data Analytics</div>
+      <div class="skill-card">Python & Flask</div>
+      <div class="skill-card">Django & AI/ML</div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="mb-32 max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">About Me</h2>
-      <p id="about-text" class="text-gray-300 text-lg"></p>
-    </section>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section">
+    <h2>Featured Projects</h2>
+    <div class="portfolio-grid">
+      <div class="project-card">
+        <div class="project-overlay">
+          <h3>AI-Driven Dashboard</h3>
+          <p>Interactive data visualization for enterprise decision making.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-overlay">
+          <h3>Supply Chain Automation</h3>
+          <p>End-to-end digital transformation project using SAP + Python.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-overlay">
+          <h3>Business Process Optimizer</h3>
+          <p>AI/ML pipeline for forecasting demand and resource allocation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="mb-32 max-w-5xl mx-auto">
-      <h2 class="text-4xl font-bold mb-6 text-center">Skills</h2>
-      <div id="skills-list" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Let’s Connect</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="mb-32 max-w-6xl mx-auto">
-      <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
-      <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-    </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2030 Pavan | Future-Ready Portfolio</p>
+  </footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="mb-32 max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Contact</h2>
-      <div id="contact-links" class="flex flex-col md:flex-row justify-center gap-6 text-lg"></div>
-    </section>
-  </div>
-
-  <!-- Custom JS -->
+  <!-- Scripts -->
   <script src="main.js"></script>
 </body>
-
 </html>
