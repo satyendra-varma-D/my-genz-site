@@ -1,15 +1,15 @@
 const canvas = document.getElementById("starfield");
 const ctx = canvas.getContext("2d");
 
-function resize() {
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-resize();
-window.addEventListener("resize", resize);
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
-// Starfield setup
-const numStars = 1200;
+// Starfield configuration
+const numStars = 1000;
 let stars = [];
 
 function initStars() {
@@ -26,13 +26,13 @@ function initStars() {
 initStars();
 
 // Draw stars
-function draw() {
+function drawStars() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   for (let i = 0; i < stars.length; i++) {
     let star = stars[i];
-    star.z -= 5; // star speed
+    star.z -= 6; // speed
 
     if (star.z <= 0) {
       star.x = (Math.random() - 0.5) * canvas.width;
@@ -52,7 +52,20 @@ function draw() {
     }
   }
 
-  requestAnimationFrame(draw);
+  requestAnimationFrame(drawStars);
 }
 
-draw();
+drawStars();
+
+// Optional: Floating skill/project animation
+const skills = document.querySelectorAll('.skill');
+skills.forEach((skill, index) => {
+  skill.style.transitionDelay = `${index * 0.1}s`;
+  skill.classList.add('fade-in');
+});
+
+const projects = document.querySelectorAll('.project-card');
+projects.forEach((project, index) => {
+  project.style.transitionDelay = `${index * 0.2}s`;
+  project.classList.add('fade-in');
+});
