@@ -1,92 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satyendra Varma DN | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satyendra Varma DN | ERP & Operations Consultant</title>
+
+  <!-- SEO -->
+  <meta name="description" content="ERP & Operations Consultant specializing in Supply Chain and Oil & Gas. Designing AI-enabled, ERP-led transformation for complex industries." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
-  <!-- Starfield Background -->
+
+  <!-- Ambient Canvas Background -->
   <canvas id="starfield"></canvas>
 
-  <!-- Navbar -->
+  <!-- Navigation -->
   <nav class="navbar">
     <ul>
       <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">Perspective</a></li>
+      <li><a href="#skills">Capabilities</a></li>
+      <li><a href="#projects">Blueprints</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-content">
-      <h1>Satyendra Varma DN</h1>
-      <h2>Techno-Functional Consultant | Business Analyst | AI & Supply Chain Enthusiast</h2>
-      <p class="tagline">Blending Business Analysis, SAP, and AI to deliver future-ready solutions</p>
+      <h1 id="name">Loading…</h1>
+      <h2 id="title"></h2>
+      <p class="tagline" id="tagline"></p>
+
       <div class="hero-links">
-        <a href="https://www.linkedin.com/in/satyendra-varma-dn-472288280/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/satyendra-varma-D" target="_blank">GitHub</a>
-        <a href="mailto:pavan964212@gmail.com">Email</a>
+        <a href="#projects">View Work</a>
+        <a href="#contact">Let’s Talk</a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- ABOUT / PERSPECTIVE -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2>Why I Exist in This Ecosystem</h2>
+    <p id="about-text"></p>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="skills">
+    <h2>Core Capabilities</h2>
+    <div class="skills-container" id="skills-container">
+      <!-- injected via JS -->
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION BLUEPRINTS -->
+  <section id="projects">
+    <h2>Transformation Blueprints</h2>
+    <div class="projects-container" id="projects-container">
+      <!-- injected via JS -->
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Let’s Build Something That Actually Works</h2>
     <p>
-      I am a techno-functional consultant with a passion for bridging technology and business.
-      Experienced in SAP, supply chain, finance, procurement, and AI-driven solutions.
-      I love creating impactful solutions that connect systems, data, and people seamlessly.
+      If you are modernizing ERP-led operations, supply chains,
+      or oil & gas distribution systems, I’m open to serious conversations.
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <a id="email" href="#"></a>
+    </p>
+
+    <p>
+      <strong>LinkedIn:</strong>
+      <a id="linkedin" href="#" target="_blank"></a>
+    </p>
+
+    <p>
+      <strong>GitHub:</strong>
+      <a id="github" href="#" target="_blank"></a>
     </p>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-      <div class="skill">SAP ABAP</div>
-      <div class="skill">Supply Chain Management</div>
-      <div class="skill">Business Analysis</div>
-      <div class="skill">AI & Machine Learning</div>
-      <div class="skill">Data Analytics</div>
-      <div class="skill">IoT Integration</div>
-      <div class="skill">Project Management</div>
-      <div class="skill">Kotlin / Android Dev</div>
-    </div>
-  </section>
+  <!-- DATA BINDING SCRIPT -->
+  <script>
+    fetch('data.json')
+      .then(res => res.json())
+      .then(data => {
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3>AI-driven AgriTech Platform</h3>
-        <p>Developed a platform leveraging AI to optimize crop yield predictions and automate supply chain processes.</p>
-      </div>
-      <div class="project-card">
-        <h3>Scrap Management System</h3>
-        <p>Built a full-stack solution for real-time tracking of scrap materials, with analytics and vendor management.</p>
-      </div>
-      <div class="project-card">
-        <h3>IoT-based Transport Tracker</h3>
-        <p>Implemented a vehicle tracking system integrating IoT devices with real-time dashboards and alerts.</p>
-      </div>
-    </div>
-  </section>
+        // Hero
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('title').textContent = data.title;
+        document.getElementById('tagline').textContent = data.tagline;
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:satyendra.varma@example.com">pavan964212@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/satyendra-varma-dn-472288280/" target="_blank">linkedin.com/in/satyendra-varma-dn-472288280/</a></p>
-    <p>GitHub: <a href="https://github.com/satyendra-varma-D" target="_blank">github.com/satyendra-varma-D</a></p>
-  </section>
+        // About
+        document.getElementById('about-text').textContent = data.about;
 
+        // Skills
+        const skillsContainer = document.getElementById('skills-container');
+        data.skills.forEach(skill => {
+          const div = document.createElement('div');
+          div.className = 'skill';
+          div.textContent = skill;
+          skillsContainer.appendChild(div);
+        });
+
+        // Projects
+        const projectsContainer = document.getElementById('projects-container');
+        data.projects.forEach(project => {
+          const card = document.createElement('div');
+          card.className = 'project-card';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = project.title;
+
+          const p = document.createElement('p');
+          p.textContent = project.desc;
+
+          card.appendChild(h3);
+          card.appendChild(p);
+          projectsContainer.appendChild(card);
+        });
+
+        // Contact
+        document.getElementById('email').textContent = data.contact.email;
+        document.getElementById('email').href = `mailto:${data.contact.email}`;
+
+        document.getElementById('linkedin').textContent = 'LinkedIn Profile';
+        document.getElementById('linkedin').href = data.contact.linkedin;
+
+        document.getElementById('github').textContent = 'GitHub Profile';
+        document.getElementById('github').href = data.contact.github;
+      });
+  </script>
+
+  <!-- Main JS -->
   <script src="main.js"></script>
+
 </body>
 </html>
