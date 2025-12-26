@@ -1,6 +1,6 @@
-/* ======================================================
+/* ===============================
    RESET & BASE
-====================================================== */
+================================ */
 
 * {
   margin: 0;
@@ -16,9 +16,9 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ======================================================
+/* ===============================
    AMBIENT CANVAS
-====================================================== */
+================================ */
 
 canvas#starfield {
   position: fixed;
@@ -27,9 +27,9 @@ canvas#starfield {
   pointer-events: none;
 }
 
-/* ======================================================
-   NAVIGATION
-====================================================== */
+/* ===============================
+   NAVBAR
+================================ */
 
 .navbar {
   position: fixed;
@@ -45,11 +45,10 @@ canvas#starfield {
 }
 
 .navbar a {
-  text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
+  text-decoration: none;
   color: #cdd9e5;
-  transition: color 0.3s ease;
 }
 
 .navbar a:hover,
@@ -57,9 +56,9 @@ canvas#starfield {
   color: #1da1f2;
 }
 
-/* ======================================================
+/* ===============================
    HERO
-====================================================== */
+================================ */
 
 #hero {
   height: 100vh;
@@ -76,15 +75,13 @@ canvas#starfield {
 
 .hero-content h1 {
   font-size: 3.2rem;
-  font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 .hero-content h2 {
   margin-top: 18px;
   font-size: 1.2rem;
-  font-weight: 400;
   color: #9bb6cc;
 }
 
@@ -105,9 +102,7 @@ canvas#starfield {
   padding: 12px 28px;
   border-radius: 30px;
   font-size: 0.95rem;
-  font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .hero-links a:first-child {
@@ -115,168 +110,137 @@ canvas#starfield {
   color: #fff;
 }
 
-.hero-links a:first-child:hover {
-  background: #1484cc;
-}
-
 .hero-links a:last-child {
   border: 1px solid rgba(255,255,255,0.25);
   color: #e6eef5;
 }
 
-.hero-links a:last-child:hover {
-  border-color: #1da1f2;
-  color: #1da1f2;
+/* ===============================
+   IMAGE SECTIONS
+================================ */
+
+.section-image {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-/* ======================================================
-   SECTIONS – GLOBAL
-====================================================== */
+.section-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 12, 0.78);
+  z-index: 0;
+}
 
-section {
+.section-image > * {
   position: relative;
   z-index: 1;
-  padding: 120px 64px;
+}
+
+.bg-operations { background-image: url("assets/operations.jpg"); }
+.bg-supplychain { background-image: url("assets/supplychain.jpg"); }
+.bg-oilgas { background-image: url("assets/oilgas.jpg"); }
+
+/* ===============================
+   SECTIONS & SPACING
+================================ */
+
+section {
+  padding: 140px 64px;
+  position: relative;
+  z-index: 1;
 }
 
 section h2 {
   font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
+  margin-bottom: 40px;
 }
 
-/* ======================================================
-   ABOUT
-====================================================== */
+/* ===============================
+   CONTENT PANEL
+================================ */
 
-#about p {
-  max-width: 840px;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #b9c7d6;
-  margin-bottom: 18px;
+.content-panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 42px;
+  max-width: 920px;
 }
 
-/* ======================================================
+/* ===============================
    CAPABILITIES
-====================================================== */
+================================ */
 
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 28px;
 }
 
 .skill {
   padding: 10px 20px;
   border-radius: 22px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
-  color: #cdd9e5;
-  transition: all 0.25s ease;
+  font-size: 0.9rem;
 }
 
-.skill:hover {
-  background: rgba(29,161,242,0.12);
-  border-color: rgba(29,161,242,0.4);
-  color: #e6f4ff;
-}
-
-/* ======================================================
-   TRANSFORMATION BLUEPRINTS
-====================================================== */
+/* ===============================
+   PROJECTS
+================================ */
 
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
-  margin-top: 36px;
 }
 
 .project-card {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 28px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(29,161,242,0.5);
 }
 
 .project-card h3 {
-  font-size: 1.05rem;
   margin-bottom: 12px;
-  color: #e6eef5;
 }
 
-.project-card p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #b9c7d6;
-}
-
-/* ======================================================
+/* ===============================
    CONTACT
-====================================================== */
-
-#contact p {
-  font-size: 1rem;
-  margin-bottom: 14px;
-  color: #b9c7d6;
-}
+================================ */
 
 #contact a {
   color: #7fd4ff;
   text-decoration: none;
 }
 
-#contact a:hover {
-  text-decoration: underline;
-}
-
-/* ======================================================
-   SCROLL REVEAL (USED BY JS)
-====================================================== */
+/* ===============================
+   SCROLL REVEAL (JS)
+================================ */
 
 section,
 .skill,
 .project-card {
   opacity: 0;
-  transform: translateY(24px);
-  transition: all 0.7s ease;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.8s ease;
 }
 
 .visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* ======================================================
+/* ===============================
    RESPONSIVE
-====================================================== */
+================================ */
 
 @media (max-width: 768px) {
-
-  .navbar {
-    right: 24px;
-  }
-
-  .hero-content {
-    padding: 0 32px;
-  }
-
-  .hero-content h1 {
-    font-size: 2.4rem;
-  }
-
-  section {
-    padding: 90px 32px;
-  }
+  .hero-content { padding: 0 32px; }
+  .hero-content h1 { font-size: 2.4rem; }
+  section { padding: 100px 32px; }
 }
