@@ -25,6 +25,7 @@ canvas#starfield {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+   opacity: 0.35;
 }
 
 /* ===============================
@@ -123,14 +124,14 @@ canvas#starfield {
   position: relative;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .section-image::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(5, 7, 12, 0.78);
+  background: rgba(5, 7, 12, 0.6);
   z-index: 0;
 }
 
@@ -139,9 +140,18 @@ canvas#starfield {
   z-index: 1;
 }
 
-.bg-operations { background-image: url("assets/operations.jpg"); }
-.bg-supplychain { background-image: url("assets/supplychain.jpg"); }
-.bg-oilgas { background-image: url("assets/oilgas.jpg"); }
+/* TEMP TEST IMAGE (replace later with local assets) */
+.bg-operations {
+  background-image: url("https://images.unsplash.com/photo-1581090700227-1e37b190418e");
+}
+
+.bg-supplychain {
+  background-image: url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d");
+}
+
+.bg-oilgas {
+  background-image: url("https://images.unsplash.com/photo-1581092919531-2c8b8d4c38ef");
+}
 
 /* ===============================
    SECTIONS & SPACING
