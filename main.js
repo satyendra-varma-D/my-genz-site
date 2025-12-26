@@ -1,71 +1,120 @@
+/* =====================================================
+   AMBIENT CANVAS – DATA PARTICLES (BACKGROUND LAYER)
+===================================================== */
+
 const canvas = document.getElementById("starfield");
 const ctx = canvas.getContext("2d");
 
+let width, height;
+let particles = [];
+const PARTICLE_COUNT = 300;
+
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Starfield configuration
-const numStars = 1000;
-let stars = [];
+class Particle {
+  constructor() {
+    this.reset();
+  }
 
-function initStars() {
-  stars = [];
-  for (let i = 0; i < numStars; i++) {
-    stars.push({
-      x: (Math.random() - 0.5) * canvas.width,
-      y: (Math.random() - 0.5) * canvas.height,
-      z: Math.random() * canvas.width,
-      size: Math.random() * 2 + 0.5
+  reset() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.vx = (Math.random() - 0.5) * 0.15;
+    this.vy = (Math.random() - 0.5) * 0.15;
+    this.size = Math.random() * 1.6 + 0.4;
+    this.alpha = Math.random() * 0.5 + 0.15;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (
+      this.x < 0 || this.x > width ||
+      this.y < 0 || this.y > height
+    ) {
+      this.reset();
+    }
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(120, 190, 255, ${this.alpha})`;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    particles.push(new Particle());
+  }
+}
+initParticles();
+
+function animateCanvas() {
+  ctx.clearRect(0, 0, width, height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+
+/* =====================================================
+   SCROLL REVEAL – SUBTLE, ENTERPRISE SAFE
+===================================================== */
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
-  }
-}
-initStars();
+  },
+  { threshold: 0.15 }
+);
 
-// Draw stars
-function drawStars() {
-  ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+document.querySelectorAll("section, .skill, .project-card")
+  .forEach(el => observer.observe(el));
 
-  for (let i = 0; i < stars.length; i++) {
-    let star = stars[i];
-    star.z -= 6; // speed
+/* =====================================================
+   NAVIGATION – ACTIVE SECTION INDICATOR
+===================================================== */
 
-    if (star.z <= 0) {
-      star.x = (Math.random() - 0.5) * canvas.width;
-      star.y = (Math.random() - 0.5) * canvas.height;
-      star.z = canvas.width;
-      star.size = Math.random() * 2 + 0.5;
+const navLinks = document.querySelectorAll(".navbar a");
+const sections = [...document.querySelectorAll("section")];
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
     }
+  });
 
-    let k = 200 / star.z;
-    let sx = star.x * k + canvas.width / 2;
-    let sy = star.y * k + canvas.height / 2;
-    let size = star.size * (1 - star.z / canvas.width) * 2;
-
-    if (sx >= 0 && sx < canvas.width && sy >= 0 && sy < canvas.height) {
-      ctx.fillStyle = `rgba(0, 240, 255, ${1 - star.z / canvas.width})`;
-      ctx.fillRect(sx, sy, size, size);
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
     }
-  }
-
-  requestAnimationFrame(drawStars);
-}
-
-drawStars();
-
-// Optional: Floating skill/project animation
-const skills = document.querySelectorAll('.skill');
-skills.forEach((skill, index) => {
-  skill.style.transitionDelay = `${index * 0.1}s`;
-  skill.classList.add('fade-in');
+  });
 });
 
-const projects = document.querySelectorAll('.project-card');
-projects.forEach((project, index) => {
-  project.style.transitionDelay = `${index * 0.2}s`;
-  project.classList.add('fade-in');
+/* =====================================================
+   DATA LOAD SAFETY CHECK (OPTIONAL HARDENING)
+===================================================== */
+
+window.addEventListener("error", (e) => {
+  console.warn("Non-blocking error detected:", e.message);
 });
